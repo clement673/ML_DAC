@@ -99,23 +99,5 @@ geo_mat, notes = load_poi("bar")
 show_img()
 # Affiche les POIs
 plt.scatter(geo_mat[:,0],geo_mat[:,1],alpha=0.8,s=3)
-# Ajouter une légende
-plt.legend(['Points d\'intérêt'])
-
-# Ajouter un titre
-plt.title('Points d\'intérêt à Paris')
-
-# Afficher les coordonnées des POI ayant une note supérieure à une certaine valeur
-high_notes_indices = np.where(notes > 0.8)[0]
-high_notes_geo_mat = geo_mat[high_notes_indices]
-for i in high_notes_indices:
-    plt.text(geo_mat[i, 0], geo_mat[i, 1], f'POI {i}', fontsize=8, color='blue')
-
-# Afficher les coordonnées des POI ayant une note inférieure à une certaine valeur
-low_notes_indices = np.where(notes <= 0.8)[0]
-low_notes_geo_mat = geo_mat[low_notes_indices]
-for i in low_notes_indices:
-    plt.text(geo_mat[i, 0], geo_mat[i, 1], f'POI {i}', fontsize=8, color='red')
-
 plt.show()
 
